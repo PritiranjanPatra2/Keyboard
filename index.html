@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Get ASCII Value of Key</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            font-size: 7rem;
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+            display: block;
+            text-shadow: 1px 2px 3px black;
+        }
+
+        span {
+            font-weight: bold;
+            color: #007bff;
+            font-size: 7rem;
+            
+            text-shadow: 1px 2px 3px black;
+        }
+
+        #value {
+            font-size: 7rem;
+            color: #28a745;
+            display: block;
+            
+            text-shadow: 1px 2px 3px black;
+            text-align: center;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>You Pressed <span></span></h1>
+    <h1 id="value"></h1>
+    <audio src="sound.mp3" id="sound"></audio>
+
+    <script>
+        window.addEventListener('keydown', function(event){
+            const key = event.key;
+            const value = document.getElementById('value');
+            const ascii = event.keyCode || event.which;
+            document.querySelector('span').innerText = key;
+            value.innerText = ascii;
+            
+            let sound = document.getElementById('sound');
+            sound.currentTime = 0;
+            sound.play();
+        });
+    </script>
+</body>
+</html>
